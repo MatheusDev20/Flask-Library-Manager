@@ -7,6 +7,10 @@
 * Books
 * Users
 
+# Tecnologies used
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+* [SQL Alchemy](https://www.sqlalchemy.org/)
+* [Postgres SQL](https://www.postgresql.org/)
 
 
 
