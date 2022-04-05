@@ -7,12 +7,16 @@ class BaseConfiguration:
 class DevelopmentConfig(BaseConfiguration):
     DEBUG = True
     ENV = 'dev'
+    SQLALCHEMY_DATABASE_URI = os.environ['DB_URI']
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
     TEMPLATES_AUTO_RELOAD = True
 
 class ProductionConfig(BaseConfiguration):
     DEBUG = False
     TESTING = True
     ENV = 'production'
+    SQLALCHEMY_DATABASE_URI = os.environ['DB_URI']
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 config_obj = {
     'dev': 'app.config.DevelopmentConfig',
@@ -23,3 +27,7 @@ def configure_app(app):
     """ Configure the Flask WSGI Instance according the enviroment Variable FLASK_CONF """
     enviroment = os.getenv('FLASK_CONFIG', 'dev')
     app.config.from_object(config_obj[enviroment])
+
+
+def init_db():
+    print('?')
