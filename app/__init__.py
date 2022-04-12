@@ -1,13 +1,17 @@
 from flask import Flask
 from app.config import configure_app
 from flask import current_app
+from app.db.models import *
 from app.db import db
+from flask_migrate import Migrate
 
 def create_app():
     """ Instance and create Flask WSGI App """
     app = Flask(__name__)
     configure_app(app)
     db.init_app(app)
+    migrate = Migrate(app, db)
+
     with app.app_context():
         @app.route('/')
         def first_route():

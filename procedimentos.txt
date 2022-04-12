@@ -1,0 +1,9 @@
+docker exec -it <hash container> bash -> Conecta no docker do postgres
+
+psql -U postgres -> Abre o terminal do postgres
+
+\l -> lista os databases
+
+\c <database_name> conecta em um banco específico para rodar querys
+
+exit -> sai do bash do container
