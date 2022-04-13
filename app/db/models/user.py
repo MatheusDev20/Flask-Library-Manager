@@ -9,6 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(120), unique=True, nullable=False)
     admin = db.Column(db.Boolean(), default=False, nullable=False)
     role = db.Column(pgEnum(Roles), unique=False, nullable=False, default='operation')
+    avatar = db.Column(db.String(200), nullable=False)  
 
     def __repr__(self):
         return '<User %r>' % self.username

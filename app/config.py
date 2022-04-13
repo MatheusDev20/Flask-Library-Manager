@@ -5,6 +5,7 @@ load_dotenv()
 class BaseConfiguration:
     TESTING = False
     SOME_RANDOM_TOKEN = '123'
+    SECRET_KEY = 'a88e719e07be687a817aa6a556437a47'
 
 class DevelopmentConfig(BaseConfiguration):
     DEBUG = True
