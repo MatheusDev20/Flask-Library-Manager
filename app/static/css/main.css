@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+.inner-container > form {
+  display: flex;
+  flex-direction: column;
+}
+.admin {
+  display: flex;
+  margin-top: 25px;
+}
+
+.checkbox  {
+  margin-left: 15px;
+}
