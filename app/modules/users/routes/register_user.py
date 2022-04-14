@@ -3,7 +3,7 @@ from flask import request, render_template
 from app.modules.users.user_form import UserRegistrationForm
 from app.db.models import User
 from flask import flash
-from app.db import db
+from app.db.repositories.BaseOperations import BaseDbOperations
 
 users = [
     {
@@ -30,7 +30,6 @@ def register_user():
             'role': form.data['role'].upper(),
             'avatar': 'RandomS3String'
         }
-        db.session.add(User(**new_user))
-        db.session.commit()
-
+        BaseDbOperations(User).add(new_user)
+    print(form.errors)
     return render_template('register_user.html', title='Register User', form=form)
