@@ -4,24 +4,25 @@
 <div class="form-container">
   <div class="inner-container">
     <div class="form-title">
-      <h1>Login In</h1>
+      <h3>Login In</h3>
     </div>
     <form method='POST' action="{{url_for('users_bp.login_user')}}">
       {{form.csrf_token}}
         <div class="form-group">
-          {{form.email.label}}
-          {{form.email(size=25, class_='form-control')}}
+        {{form.email.label}}
+          {{form.email(size=35, class_='form-control')}}
         </div>
         <div class="form-group">
-          {{form.password.label}}
-          {{form.password(size=25, class_='form-control')}}
+          <div class="login-label">
+            {{form.password.label}}
+            <span><a href="{{url_for('users_bp.recovery_password')}}">Esqueceu?</a></span>
+          </div>
+          {{form.password(size=35, class_='form-control')}}
         </div>
         <div class="form-group">
-         <span href="">Doesn't have an account? <a href="{{url_for('users_bp.register_user')}}">Sign up</a></span>
+         <span class="create-acc-span">Doesn't have an account? <a href="{{url_for('users_bp.register_user')}}">Sign up</a></span>
         </div>
-      <button type="submit" class="btn btn-primary btn-sm">
-        {{form.submit(class_='form-submit')}}
-      </button>
+        {{form.submit(class_='form-submit btn login-btn')}}
     </form>
   </div>
 

@@ -8,6 +8,7 @@ from app.db.repositories.BaseOperations import BaseDbOperations
 @users_bp.route('/register', methods=['POST', 'GET'])
 def register_user():
     form = UserRegistrationForm()
+
     if form.validate_on_submit():
         user_data = form.data
         new_user = {
@@ -23,4 +24,5 @@ def register_user():
         flash(f"{new_user['username']} Your account has been created succesfully!")
         return redirect(url_for('users_bp.login_user'))
 
+    print(form.errors)
     return render_template('register_user.html', title='Register User', form=form)

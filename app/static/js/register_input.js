@@ -9,6 +9,3 @@ const checkMatchPasswords = (password, confirmPassowrd) => {
 
   return true
 }
-submitForm.addEventListener('submit', (err) => {
-  console.log('Form Submitted')
-})

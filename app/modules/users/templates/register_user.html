@@ -5,32 +5,54 @@
 <div class="form-container">
   <div class="inner-container">
     <div class="form-title">
-      <h1>Register new user</h1>
+      <h2>Register new user</h2>
     </div>
     <form id="form" method='POST' action="{{url_for('users_bp.register_user')}}">
       {{form.csrf_token}}
       <div class="form-row">
         <div class="form-group col-md-6">
           {{form.username.label}}
-          {{form.username(size=25, class_='form-control')}}
           {% if form.username.errors %}
-            {% for field, errors in form.errors.items() %}
-              <small class="form-text text-muted ">
-                  {{ ', '.join(errors) }}
-              </small>
-            {% endfor %}
+            {{form.username(size=25, class_='form-control is-invaid')}}
+            <div class="invalid-feedback">
+              {% for error in form.username.errors %}
+                <span>{{error}}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+              {{form.username(size=25, class_='form-control')}}
           {% endif %}
         </div>
         <div class="form-group col-md-6">
           {{form.email.label}}
-          {{form.email(size=25, class_='form-control')}}
+          {% if form.email.errors %}
+            {{form.email(size=25, class='form-control is-invalid')}}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+                <span>{{error}}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{form.email(size=25, class_='form-control')}}
+          {% endif %}
+  
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           {{form.password.label}}
-          {{form.password(class_='form-control')}}
+          {% if form.password.errors %}
+            {{form.password(class_='form-control is-invalid')}}
+            <div class="invalid-feedback">
+              {% for error in form.password.errors %}
+                <span>{{error}}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+              {{form.password(class_='form-control')}}
+          {% endif %}
+
           <small id="passwordHelpBlock" class="form-text text-muted">
             Your password must be 8-20 characters long
           </small>
@@ -52,11 +74,7 @@
         <label class="form-check-label" for="exampleCheck1">Accept TOS</label>
         <small class="form-text text-muted">By cheking this button, you agree with your terms of contract</small>
       </div>
-
-      <button type="submit" class="btn btn-primary btn-sm" id="submit-btn">
-        Create
-        {{form.submit(class_='form-submit')}}
-      </button>
+        {{form.submit(class_='form-submit register-btn')}}
     </form>
   </div>
 

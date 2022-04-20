@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #fff;
+}
 .form-container {
   display: flex;
   height: 100vh;
@@ -39,4 +41,23 @@
 .flashes > span {
   font-weight: bold;
   color: #4BB543 
+}
+
+.register-btn {
+  background-color: #309a1e;
+  width: 100%;
+  height: 32px;
+}
+.btn:hover {
+  background-color: #66d753;
+  color: #fff;
+}
+.login-label {
+  display: flex;
+  justify-content: space-between;
+}
+.login-label a {
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: bold;
 }
