@@ -5,13 +5,17 @@ from app.db.models import *
 from app.db import db
 from flask_migrate import Migrate
 from app.modules import users_bp
-
+# from app.modules.users import LoginManager
 
 
 def create_app():
     """ Instance and create Flask WSGI App """
     app = Flask(__name__)
     configure_app(app)
+    
+    # login_manager = LoginManager()
+    # login_manager.init_app(app)
+    
     db.init_app(app)
     migrate = Migrate(app, db)
 

@@ -4,6 +4,9 @@ from app.modules.users.user_form import LoginUserForm
 from app.db.models import User
 from flask import flash
 from app.db.repositories.BaseOperations import BaseDbOperations
+from flask_login import LoginManager
+
+
 
 @users_bp.route('/login', methods=['POST', 'GET'])
 def login_user():

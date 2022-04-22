@@ -4,6 +4,7 @@ from app.modules.users.user_form import UserRegistrationForm
 from app.db.models import User
 from flask import flash
 from app.db.repositories.BaseOperations import BaseDbOperations
+import uuid
 
 @users_bp.route('/register', methods=['POST', 'GET'])
 def register_user():
@@ -17,12 +18,19 @@ def register_user():
             'password': form.data['password'],
             'admin': False,
             'role': form.data['role'].upper(),
-            'avatar': 'RandomS3String'
+            'avatar': 'RandomS3String',
+            'user_uuiid': uuid.uuid4()
         }
 
-        BaseDbOperations(User).add(new_user)
-        flash(f"{new_user['username']} Your account has been created succesfully!")
+        try:
+            BaseDbOperations(User).add(new_user)
+        except:
+            print('?')
+            flash('Could not create your user, please try again', 'danger')
+
+            return render_template('register_user.html', title='Register User', form=form)
+
+        flash(f"{new_user['username']} Your account has been created succesfully!","success")
         return redirect(url_for('users_bp.login_user'))
 
-    print(form.errors)
     return render_template('register_user.html', title='Register User', form=form)
