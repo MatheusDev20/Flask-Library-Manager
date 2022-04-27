@@ -14,5 +14,22 @@ class User(db.Model):
     user_uuid = db.Column(UUID(as_uuid=True), nullable=False)
     extra_info = db.Column(db.String(100), nullable=True)
 
+    @property
+    def is_authenticated(self):
+        return True
+    
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+        
+    @property
+    def get_id(self):
+        return str(self.id)
+
+
     def __repr__(self):
         return '<User %r>' % self.username

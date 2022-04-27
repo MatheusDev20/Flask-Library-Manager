@@ -12,3 +12,7 @@ class UseFullFunctions:
     @classmethod
     def generate_s3_path(self, filename: str, resource: str):
         return f'{datetime.now().year}/{datetime.now().month}/{resource}/{filename}'
+
+    @classmethod
+    def sql_alchemy_to_dict(self, row):
+        return {column: str(getattr(row, column)) for column in row.__table__.c.keys()}

@@ -16,3 +16,23 @@ class BaseDbOperations():
         db.session.close()
 
         db.session.close()
+
+    def get_by_email(self, email):
+        if not email:
+            return
+
+        user_info = self.model.query.filter_by(email=email).first()
+
+        if not user_info:
+            return {
+                "status": 404,
+                "message": "User not found",
+            }
+    
+        return {
+            "status": 200,
+            "message": "Success",
+            "data": user_info
+        }
+
+        

@@ -6,7 +6,7 @@
     <div class="form-title">
       <h3>Login In</h3>
     </div>
-    <form method='POST' action="{{url_for('users_bp.login_user')}}">
+    <form method='POST' action="{{url_for('users_bp.login')}}">
       {{form.csrf_token}}
         <div class="form-group">
         {{form.email.label}}

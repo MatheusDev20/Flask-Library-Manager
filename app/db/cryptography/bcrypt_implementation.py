@@ -9,4 +9,12 @@ class Bcrypt:
 
         pass_salt = bcrypt.gensalt()
 
-        return bcrypt.hashpw(byte_encoded_password, salt=pass_salt)
+        encode_pass = bcrypt.hashpw(byte_encoded_password, salt=pass_salt)
+
+        return encode_pass.decode('utf-8')
+
+    
+    @classmethod
+    def check_password_hash(self, password: str, hashed: str):
+        """ Check if a password mathces a hash """
+        return bcrypt.checkpw(password.encode('utf-8'), hashed.encode('utf-8'))

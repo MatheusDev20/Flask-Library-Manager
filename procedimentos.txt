@@ -7,3 +7,9 @@ psql -U postgres -> Abre o terminal do postgres
 \c <database_name> conecta em um banco específico para rodar querys
 
 exit -> sai do bash do container
+
+docker image list -> list all images
+
+docker build <directory> --tag <nome da imagem>
+
+docker run -d <image_name>
