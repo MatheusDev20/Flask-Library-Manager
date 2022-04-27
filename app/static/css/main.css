@@ -13,7 +13,6 @@ body {
   align-items: center;
 }
 .inner-container {
-  height: 70%;
   margin-bottom: 150px;
 }
 .form-title {
@@ -61,4 +60,7 @@ body {
   text-decoration: underline;
   font-size: 12px;
   font-weight: bold;
+}
+.form-input {
+  border: 1px solid
 }

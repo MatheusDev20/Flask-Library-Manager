@@ -12,6 +12,7 @@
 * [SQL Alchemy](https://www.sqlalchemy.org/)
 * [Postgres SQL](https://www.postgresql.org/)
 * [Docker](https://www.docker.com/)
+* [AWS S3](https://aws.amazon.com/pt/s3/)
 
 
 

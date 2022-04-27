@@ -5,6 +5,7 @@ from app.db.models import *
 from app.db import db
 from flask_migrate import Migrate
 from app.modules import users_bp
+import os
 # from app.modules.users import LoginManager
 
 
