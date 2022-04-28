@@ -3,6 +3,7 @@ import os
 from werkzeug.utils import secure_filename
 from datetime import datetime
 from app.utils import UseFullFunctions
+from app import current_app as app
 
 class UploadFile(S3):
     def __init__(self):
@@ -15,7 +16,7 @@ class UploadFile(S3):
 
         if UseFullFunctions().allowed_file_extensions(extension): 
             file_path = secure_filename(f'uploads/{filename}')
-            file.save(file_path)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             with open(file_path, 'rb') as f:
                 content = f.read()

@@ -13,7 +13,7 @@ class DevelopmentConfig(BaseConfiguration):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:docker123@localhost:5434/library_manager'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     TEMPLATES_AUTO_RELOAD = True
-    UPLOAD_FOLDER = '/uploads'
+    UPLOAD_FOLDER = 'uploads'
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 

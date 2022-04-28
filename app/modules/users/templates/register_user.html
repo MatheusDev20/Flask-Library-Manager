@@ -5,7 +5,7 @@
 <div class="form-container">
   <div class="inner-container">
     <div class="form-title">
-      <h2>Register new user</h2>
+      <h2>Sign Up</h2>
     </div>
     <form id="form" method='POST' action="{{url_for('users_bp.register_user')}}" enctype="multipart/form-data">
       {{form.csrf_token}}
@@ -82,10 +82,8 @@
         <label class="form-check-label" for="exampleCheck1">Accept TOS</label>
         <small class="form-text text-muted">By cheking this button, you agree with your terms of contract</small>
       </div>
-        {{form.submit(class_='form-submit register-btn')}}
+        {{form.submit(class_='form-submit register-btn data-bs-toggle="modal" data-bs-target="#exampleModal')}}
     </form>
   </div>
-
 </div>
-
 {% endblock %}

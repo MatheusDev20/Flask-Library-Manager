@@ -1,4 +1,4 @@
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, logout_user
 from app.modules.users import users_bp
 from app.modules.users import login_manager
 from flask import request, render_template, redirect, url_for
@@ -29,7 +29,12 @@ def login():
 
         if Bcrypt.check_password_hash(form.data['password'], user['password']):
             login_user(user_info['data'])
-
+    
             return redirect(url_for('home_bp.home'))
 
     return render_template('login.html', title='Login',form=form)
+
+@users_bp.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('users_bp.login'))

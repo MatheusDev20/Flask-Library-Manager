@@ -6,6 +6,7 @@
 body {
   background-color: #fff;
 }
+
 .form-container {
   display: flex;
   height: 100vh;
@@ -18,6 +19,10 @@ body {
 .form-title {
   display: flex;
   justify-content: center;
+}
+.form-title > h3 {
+  color: #0433ff;
+  font-weight: bold;
 }
 .inner-container > form >button {
   width: 40%;
@@ -63,4 +68,15 @@ body {
 }
 .form-input {
   border: 1px solid
+}
+.create-acc-span {
+  font-weight: bold;
+}
+.flahses {
+  border: 1px solid blue;
+}
+.home-container {
+  border: 1px solid red;
+  height: 100%;
+  width: 100%;
 }

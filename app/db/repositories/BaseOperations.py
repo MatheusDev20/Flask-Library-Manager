@@ -35,4 +35,8 @@ class BaseDbOperations():
             "data": user_info
         }
 
+    def get_all(self):
+        all_users = self.model.query.all()
+        return all_users
+
         

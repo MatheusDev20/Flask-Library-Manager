@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from app.config import configure_app
 from flask import current_app
 from app.db.models import *
@@ -18,12 +18,12 @@ def create_app():
     migrate = Migrate(app, db)
 
     with app.app_context():
-        app.register_blueprint(users_bp, url_prefix='/user')
+        app.register_blueprint(users_bp, url_prefix='/app')
         app.register_blueprint(home_bp, url_prefix='/app')
 
         @app.route('/')
-        def first_route():
-            return 'Hello Application Change'
+        def app_trigger():
+            return redirect(url_for('users_bp.login'))
 
     return app
 

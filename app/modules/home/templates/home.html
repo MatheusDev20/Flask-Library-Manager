@@ -1,8 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<div class="home-container">
   <h1>HOME</h1>
   {% if current_user.is_authenticated %}
-    Hi {{ current_user.username }}!
-  {% endif %}  
+    <a href="{{url_for('users_bp.logout')}}">Deslogar</a>
+  {% endif %}
+</div>
 {% endblock %}

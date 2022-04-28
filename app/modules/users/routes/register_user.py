@@ -45,6 +45,6 @@ def register_user():
             return render_template('register_user.html', title='Register User', form=form)
 
         flash(f"{new_user['username']} Your account has been created succesfully!","success")
-        return redirect(url_for('users_bp.login_user'))
+        return redirect(url_for('users_bp.login'))
 
     return render_template('register_user.html', title='Register User', form=form)
