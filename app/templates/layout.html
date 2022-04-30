@@ -9,15 +9,16 @@
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}" />
   {% if title %}
-  <title>Library Manager - {{title}}</title>
+  <title>Authorization System - {{title}}</title>
   {% endif %}
 </head>
 
 <body>
+ 
   <nav class="navbar navbar-dark navbar-expand" style="background-color: #0433ff;">
     <div class="d-flex justify-content-end">
       <a class="navbar-brand" href="{{url_for('users_bp.register_user')}}">
-        <span style="margin-left: 15px;">Library Manager</span>
+        <span style="margin-left: 15px;">Authorization System</span>
       </a>
       <div class="collapse navbar-collapse">
         <div class="navbar-nav ">

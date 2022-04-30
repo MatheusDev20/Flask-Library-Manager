@@ -12,8 +12,6 @@ class BaseDbOperations():
         db.session.commit()
         db.session.close()
 
-        db.session.rollback()
-        db.session.close()
 
         db.session.close()
 
@@ -38,5 +36,35 @@ class BaseDbOperations():
     def get_all(self):
         all_users = self.model.query.all()
         return all_users
+
+    
+    def exclude(self, user):
+        if not user:
+            return
+        try:
+            db.session.delete(user)
+            db.session.commit()
+            db.session.close()
+            
+            return {
+                'status': 200,
+                'message': 'Success',
+                'data': res
+            }
+        except Exception as e:
+            print(e)
+
+    def get_by_id(self, id):
+        if not id:
+            return
+        
+        user_info = self.model.query.filter_by(id=id).first()
+
+        return {
+            "status": 200,
+            "message": "Success",
+            "data": user_info
+        }
+
 
         

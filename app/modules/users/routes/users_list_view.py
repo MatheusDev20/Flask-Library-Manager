@@ -12,7 +12,16 @@ from app.utils.UsefulFunctions import UseFullFunctions
 @login_required
 def load_users():
     users = BaseDbOperations(User).get_all()
-    for user in users:
-        formatted_role = str(user.role).split('.')[1]
-        user.role = formatted_role
-    return render_template('users_list.html', title='Users List', users=users)
+    list_users = [UseFullFunctions.sql_alchemy_to_dict(user) for user in users]
+
+    filtered_data = []
+    for user in list_users:
+        new_dict = {
+            'id': user['id'],
+            "username": user['username'],
+            "email": user['email'],
+            'role': user['role'].split('.')[1]
+        }
+        filtered_data.append(new_dict)
+    
+    return render_template('users_list.html', title='Users List', users=filtered_data)

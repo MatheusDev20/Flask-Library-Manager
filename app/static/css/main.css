@@ -80,3 +80,11 @@ body {
   height: 100%;
   width: 100%;
 }
+.action-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.edit-button {
+  color: #fff;
+}
