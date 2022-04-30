@@ -40,10 +40,6 @@
               <td>{{user['role']}}</td>
               <td>
                 <div class="action-buttons">
-              
-                  <button type="button" class="btn btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Edit
-                  </button>
                   <a href="{{url_for('users_bp.delete_user', user_id=user['id'])}}">
                     <button class="btn btn-danger">
                       Delete

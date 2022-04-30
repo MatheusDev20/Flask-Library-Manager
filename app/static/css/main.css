@@ -72,11 +72,7 @@ body {
 .create-acc-span {
   font-weight: bold;
 }
-.flahses {
-  border: 1px solid blue;
-}
 .home-container {
-  border: 1px solid red;
   height: 100%;
   width: 100%;
 }
@@ -87,4 +83,16 @@ body {
 
 .edit-button {
   color: #fff;
+}
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logged {
+  color: blue;
+}
+.logged > span {
+  color: #66d753;
 }

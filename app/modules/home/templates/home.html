@@ -2,9 +2,14 @@
 
 {% block content %}
 <div class="home-container">
-  <h1>HOME</h1>
   {% if current_user.is_authenticated %}
-    <a href="{{url_for('users_bp.logout')}}">Deslogar</a>
+    <h1 class="logged">Usuário <span>{{current_user.username}}</span> Logado com sucesso!</h1>
+ 
+    <a href="{{url_for('users_bp.logout')}}">
+      <button class="btn btn-primary btn-lg">
+        Deslogar
+      </button>
+    </a>
   {% endif %}
 </div>
 {% endblock %}
